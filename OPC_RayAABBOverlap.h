@@ -29,7 +29,7 @@ inline_ BOOL RayCollider::SegmentAABBOverlap(const Point& center, const Point& e
 {
 #endif
 	// Stats
-	mNbRayBVTests++;	
+	mNbRayBVTests++;
 
 	// Pierre's code: looks like an AABB-AABB test
 	float Dx = mData2.x - center.x;		if(fabsf(Dx) > extents.x + mFDir.x)	return FALSE;
@@ -37,7 +37,10 @@ inline_ BOOL RayCollider::SegmentAABBOverlap(const Point& center, const Point& e
 	float Dz = mData2.z - center.z;		if(fabsf(Dz) > extents.z + mFDir.z)	return FALSE;
 
 	//float f;
-	register float f = mData.y * Dz - mData.z * Dy;	if(fabsf(f) > extents.y*mFDir.z + extents.z*mFDir.y)	return FALSE;
+#if __cplusplus <= 201402L
+	register
+#endif
+		float f = mData.y * Dz - mData.z * Dy;	if(fabsf(f) > extents.y*mFDir.z + extents.z*mFDir.y)	return FALSE;
 	f = mData.z * Dx - mData.x * Dz;	if(fabsf(f) > extents.x*mFDir.z + extents.z*mFDir.x)	return FALSE;
 	f = mData.x * Dy - mData.y * Dx;	if(fabsf(f) > extents.x*mFDir.y + extents.y*mFDir.x)	return FALSE;
 
@@ -65,7 +68,7 @@ inline_ BOOL RayCollider::SegmentAABBOverlap(const Point& center, const Point& e
 
 	// Stats
 	mNbRayBVTests++;
-	
+
 // PIERRE'S CODE:
 //	float Dx = mOrigin.x - center.x;	if(fabsf(Dx) > extents.x && Dx*mDir.x>=0.0f)	return FALSE;
 //	float Dy = mOrigin.y - center.y;	if(fabsf(Dy) > extents.y && Dy*mDir.y>=0.0f)	return FALSE;
@@ -80,7 +83,10 @@ inline_ BOOL RayCollider::SegmentAABBOverlap(const Point& center, const Point& e
 //	float Dz = mOrigin.z - center.z;	if(GREATER(Dz, extents.z) && ((SIR(Dz)-1)^SIR(mDir.z))>=0.0f)	return FALSE;
 
 	//float f;
-	register float f = mDir.y * Dz - mDir.z * Dy;		if(fabsf(f) > extents.y*mFDir.z + extents.z*mFDir.y)	return FALSE;
+#if __cplusplus <= 201402L
+	register
+#endif
+		float f = mDir.y * Dz - mDir.z * Dy;		if(fabsf(f) > extents.y*mFDir.z + extents.z*mFDir.y)	return FALSE;
 	f = mDir.z * Dx - mDir.x * Dz;		if(fabsf(f) > extents.x*mFDir.z + extents.z*mFDir.x)	return FALSE;
 	f = mDir.x * Dy - mDir.y * Dx;		if(fabsf(f) > extents.x*mFDir.y + extents.y*mFDir.x)	return FALSE;
 

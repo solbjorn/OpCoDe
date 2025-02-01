@@ -3,7 +3,7 @@
 
     TODO for collision detection
     - implement trs decomposition
-    - fix Volume/Boundin' Boxes & Volume/Primitives Tests 
+    - fix Volume/Boundin' Boxes & Volume/Primitives Tests
 		# done for SphereCollider!
 		# done for LSSCollider!
 		# done for RayCollider!
@@ -12,7 +12,6 @@
 
     New in Opcode 1.3.1
     - now supports scales in model world matrices collisions!
-    
 
  OPCODE distribution 1.3 (june 2003)
  -----------------------
@@ -149,7 +148,6 @@
     - Now works with deformable meshes
     - Hybrid trees
 
-
     What it can be used for:
     - standard mesh-mesh collision detection (similar to RAPID, SOLID, QuickCD, PQP, ColDet...)
     - N-body collisions (similar to V-Collide)
@@ -181,6 +179,6 @@
 
     p.terdiman@wanadoo.fr
     p.terdiman@codercorner.com
- 
+
     http://www.codercorner.com
     http://www.codercorner.com/Opcode.htm

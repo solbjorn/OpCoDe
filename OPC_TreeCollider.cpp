@@ -47,8 +47,6 @@ using namespace IceMaths;
 #include "OPC_TriTriOverlap.h"  // Standard OPCODE's tri-tri overlap routine (by Pierre)
 // #include "OPC_TriTriOverlapGilvan.h" // An optional tri-tri overlap routine based on SAT - Separating Axis Theorem (by Gilvan)
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  *	Constructor.
@@ -98,7 +96,7 @@ const char* AABBTreeCollider::ValidateSettings()
  *	\param		cache			[in] collision cache for model pointers and a colliding pair of primitives
  *	\param		world0			[in] world matrix for first object
  *	\param		world1			[in] world matrix for second object
- *	\return		true if success 
+ *	\return		true if success
  */
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool AABBTreeCollider::Collide(BVTCache& cache, const IceMaths::Matrix4x4* world0, const IceMaths::Matrix4x4* world1)
@@ -109,7 +107,7 @@ bool AABBTreeCollider::Collide(BVTCache& cache, const IceMaths::Matrix4x4* world
 	if(cache.Model0->IsQuantized()!=cache.Model1->IsQuantized())	return false;
 
 	/*
-	
+
 	  Rules:
 		- perform hull test
 		- when hulls collide, disable hull test
@@ -259,26 +257,26 @@ void AABBTreeCollider::InitQuery(const IceMaths::Matrix4x4* world0, const IceMat
 	IceMaths::Matrix4x4 WorldM0, WorldM1; // normalized (rotation & translation parts)
 
 	if(world0)
-	{		
+	{
 		NormalizePRSMatrix( WorldM0, mScale0,*world0);
-		
+
 		InvertPRMatrix(InvWorld0, WorldM0);
 	}
 	else
 	{
-		mScale0.Set(1.0,1.0,1.0);		
+		mScale0.Set(1.0,1.0,1.0);
 		InvWorld0.Identity();
 	}
 
 	if(world1)
 	{
-		NormalizePRSMatrix( WorldM1, mScale1,*world1);		
-		
+		NormalizePRSMatrix( WorldM1, mScale1,*world1);
+
 		InvertPRMatrix(InvWorld1, WorldM1);
 	}
 	else
 	{
-		mScale1.Set(1.0,1.0,1.0);		
+		mScale1.Set(1.0,1.0,1.0);
 		InvWorld1.Identity();
 	}
 

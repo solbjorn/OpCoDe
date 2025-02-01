@@ -6,7 +6,7 @@ SUBVERSION_DYNAMIC = 1
 
 CFLAGS =
 INCLUDES = -I. -I./Ice
-LIBS = 
+LIBS =
 
 CFLAGS_DYNAMIC = $(CFLAGS) -fPIC
 LIBS_DYNAMIC = $(LIBS) -shared -W1,-soname,$(TARGET_DYNAMIC_SO).$(VERSION_DYNAMIC)
@@ -26,7 +26,7 @@ SOURCES = OPC_AABBCollider.cpp OPC_AABBTree.cpp OPC_BaseModel.cpp \
 			Ice/IceMatrix3x3.cpp Ice/IceMatrix4x4.cpp Ice/IceOBB.cpp \
 			Ice/IcePlane.cpp Ice/IcePoint.cpp Ice/IceRandom.cpp \
 			Ice/IceRay.cpp Ice/IceRevisitedRadix.cpp Ice/IceSegment.cpp \
-			Ice/IceTriangle.cpp Ice/IceUtils.cpp 
+			Ice/IceTriangle.cpp Ice/IceUtils.cpp
 
 HEADERS = OPC_AABBCollider.h OPC_MeshInterface.h OPC_SphereAABBOverlap.h \
 			OPC_AABBTree.h OPC_Model.h OPC_SphereCollider.h \
@@ -50,11 +50,11 @@ OBJECTS = IceAABB.o IceTriangle.o OPC_OptimizedTree.o IceContainer.o \
 			IcePlane.o OPC_Common.o OPC_TreeCollider.o IcePoint.o \
 			OPC_HybridModel.o OPC_VolumeCollider.o IceRandom.o \
 			OPC_LSSCollider.o Opcode.o IceRay.o OPC_MeshInterface.o StdAfx.o \
-			IceRevisitedRadix.o OPC_Model.o IceSegment.o OPC_OBBCollider.o 
+			IceRevisitedRadix.o OPC_Model.o IceSegment.o OPC_OBBCollider.o
 
 .PHONY : all
 all: $(TARGET_DYNAMIC)
- 
+
 .PHONY : static
 static: $(TARGET_STATIC)
 
@@ -69,12 +69,10 @@ $(OBJECTS): $(SOURCES) $(HEADERS)
 OBJECTS_DYNAMIC: $(SOURCES) $(HEADERS)
 	$(CC) -c $(SOURCES) $(CFLAGS_DYNAMIC) $(INCLUDES)
 
-	
 $(TARGET_STATIC): $(OBJECTS)
 	ar rcs $(TARGET_STATIC) $(OBJECTS)
- 	
+
 $(TARGET_DYNAMIC): OBJECTS_DYNAMIC $(OBJECTS)
 	$(CC) $(LIBS_DYNAMIC) -o $(TARGET_DYNAMIC) $(OBJECTS)
 	ln -sf $(TARGET_DYNAMIC) $(TARGET_DYNAMIC_SO).$(VERSION_DYNAMIC)
 	ln -sf $(TARGET_DYNAMIC_SO).$(VERSION_DYNAMIC) $(TARGET_DYNAMIC_SO)
-

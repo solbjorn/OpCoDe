@@ -134,7 +134,6 @@
     - Now works with deformable meshes
     - Hybrid trees
 
-
     What it can be used for:
     - standard mesh-mesh collision detection (similar to RAPID, SOLID, QuickCD, PQP, ColDet...)
     - N-body collisions (similar to V-Collide)
@@ -166,6 +165,6 @@
 
     p.terdiman@wanadoo.fr
     p.terdiman@codercorner.com
- 
+
     http://www.codercorner.com
     http://www.codercorner.com/Opcode.htm

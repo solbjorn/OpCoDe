@@ -85,7 +85,11 @@
       inline_	const IceMaths::AABB*		GetAABB()	const	{ return &mBV;							}
       /* Clear the last bit */
       inline_	const AABBTreeNode*	GetPos()		const	{ return (const AABBTreeNode*)(mPos&~1);	}
+#ifdef OPC_NO_NEG_VANILLA_TREE
       inline_	const AABBTreeNode*	GetNeg()		const	{ const AABBTreeNode* P = GetPos(); return P ? P+1 : null;}
+#else
+      inline_	const AABBTreeNode*	GetNeg()		const	{ return (const AABBTreeNode*)(mNeg&~1);	}
+#endif
 
       /* We don't need to test both nodes since we can't have one without the other	*/
       inline_	bool				IsLeaf()		const	{ return !GetPos();						}
@@ -98,6 +102,10 @@
    /* Whatever happens we need the two children and the enclosing volume.*/
    IceMaths::AABB				mBV;		/* Global bounding-volume enclosing all the node-related primitives */
    size_t				mPos;		/* "Positive" & "Negative" children */
+#ifndef OPC_NO_NEG_VANILLA_TREE
+   size_t				mNeg;
+#endif
+
 		public:
 		// Data access
 		inline_	const udword*		GetPrimitives()		const	{ return mNodePrimitives;	}

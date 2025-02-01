@@ -82,7 +82,7 @@
  *
  *		- You can enable or disable backface culling with RayCollider::SetCulling().
  *		- If culling is enabled, ray will not hit back faces (only front faces).
- *		
+ *
  *
  *
  *	\class		RayCollider
@@ -207,7 +207,6 @@ using namespace IceMaths;
 		HANDLE_CONTACT(prim_index, flag)													\
 	}
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  *	Constructor.
@@ -275,7 +274,7 @@ bool RayCollider::Collide(const IceMaths::Ray& world_ray, const Model& model, co
 	if(!Setup(&model))	return false;
 
 	// Init collision query
-	float maxDistanceBkp = mMaxDist;	
+	float maxDistanceBkp = mMaxDist;
 	Point originBkp = mOrigin;
 	Point dirBkp = mDir;
 
@@ -344,7 +343,6 @@ bool RayCollider::Collide(const IceMaths::Ray& world_ray, const Model& model, co
 	return true;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  *	Initializes a stabbing query :
@@ -376,10 +374,10 @@ BOOL RayCollider::InitQuery(const IceMaths::Ray& world_ray, const IceMaths::Matr
 	if(world)
 	{
 #ifdef OPC_RAYCOLLIDER_SCALE_BEFORE_OVERLAP
-		// Matrix normalization & scaling stripping		
+		// Matrix normalization & scaling stripping
 		Matrix4x4 normWorldm;
 		NormalizePRSMatrix( normWorldm, mLocalScale, *world );
-		
+
 		// Invert model matrix
 		Matrix3x3 InvWorld = normWorldm;
 		mDir = InvWorld * world_ray.mDir;
@@ -397,7 +395,7 @@ BOOL RayCollider::InitQuery(const IceMaths::Ray& world_ray, const IceMaths::Matr
 		//	 (it seems to introduce errors, because it cuts number precision by a half when
 		//	  stripping the matrix scale off)
 		//  - the code is shorter and easier to maintain;  :P
-		#pragma message(" >> Using new code for ray collision")		
+		#pragma message(" >> Using new code for ray collision")
 
 		// first, invert the world matrix and transform the ray's origin
 		Matrix4x4 World;
@@ -536,7 +534,6 @@ bool RayCollider::Collide(const IceMaths::Ray& world_ray, const AABBTree* tree, 
 
 	return true;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**

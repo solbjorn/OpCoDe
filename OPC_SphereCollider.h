@@ -57,7 +57,7 @@
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 							bool			Collide(SphereCache& cache, const IceMaths::Sphere& sphere, const Model& model, const IceMaths::Matrix4x4* worlds=null, const IceMaths::Matrix4x4* worldm=null);
 
-		// 
+		//
 							bool			Collide(SphereCache& cache, const IceMaths::Sphere& sphere, const AABBTree* tree);
 		protected:
 		// Sphere in model space

@@ -55,7 +55,7 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
 {
 	// Stats
 	mNbPrimPrimTests++;
-	  
+
     float fVMin, fVMax;
 
     // direction N
@@ -64,13 +64,13 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
     const Point kN = e0 ^ e1;
     const float fNdU0 = kN | u0;//u0u1u02 origin
     TriProjection(kN,v0,v1,v2,fVMin,fVMax);
-	
+
     if ( fVMin > fNdU0 || fNdU0 > fVMax )
         return FALSE;
 
     // direction M
     const Point f0 = v1-v0;
-    const Point f1 = v2-v1;    
+    const Point f1 = v2-v1;
     const Point kM = f0 ^ f1;
 
     if ( (kN ^ kM).SquareMagnitude() >= 1.0e-6f )
@@ -91,34 +91,33 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
 			if ( fUMax < fVMin || fVMax < fUMin )		\
 				return FALSE;							\
 		}
-        
+
         // computes remaining edges
-        // directions E[i0]xF[i1]		
+        // directions E[i0]xF[i1]
 		//float fUMin, fUMax;
 
         TEST_AXES( e0, f0 )
 		TEST_AXES( e0, f1 )
         TEST_AXES( e1, f1 )
 		TEST_AXES( e1, f0 )
-		
+
 		const Point e2 = u0-u2;
 		TEST_AXES( e2, f0 )
 		TEST_AXES( e2, f1 )
 
 		const Point f2 = v0-v2;
-        TEST_AXES( e2, f2 )		
-        TEST_AXES( e1, f2 )                
-        TEST_AXES( e0, f2 )        
-        
+        TEST_AXES( e2, f2 )
+        TEST_AXES( e1, f2 )
+        TEST_AXES( e0, f2 )
 
 		return TRUE;
     }
     else
-    {        
+    {
         // NOTE: If they're coplanar, then their normals are the same??
 #define SATUSE_3D_AXES
 #ifdef SATUSE_3D_AXES
-		
+
         // this code looks like the original one, but with few changes
 		float fUMin, fUMax;
         TEST_AXES( kN, e0 )
@@ -138,7 +137,7 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
         float ni0, ni1;
         short i0,i1;
 
-		// project onto an axis-aligned plane, that maximizes the area        
+		// project onto an axis-aligned plane, that maximizes the area
         if(A[0]>A[1])
         {
             if(A[0]>A[2])
@@ -152,7 +151,7 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
                 i1=1;
             }
         }
-        else   // A[0]<=A[1] 
+        else   // A[0]<=A[1]
         {
             if(A[2]>A[1])
             {
@@ -165,7 +164,7 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
                 i1=2;
             }
         }
-        
+
         #define TEST_AXES2D(edge)					  \
 			ni0 =  edge[i0];                          \
 			ni1 = -edge[i1];                          \
@@ -173,18 +172,17 @@ inline_ BOOL AABBTreeCollider::TriTriOverlap(const Point& u0, const Point& u1, c
 			TriProjection2D(v0,v1,v2,fVMin,fVMax);    \
 			if ( fUMax < fVMin || fVMax < fUMin )     \
 				return false;
-        
-      
+
 		float fUMin, fUMax;
         TEST_AXES2D( e0 )
         TEST_AXES2D( e1 )
         TEST_AXES2D( e2 )
-        
+
         TEST_AXES2D( f0 )
         TEST_AXES2D( f1 )
         TEST_AXES2D( f2 )
 #endif
-        
+
 		return TRUE;
     }
 }

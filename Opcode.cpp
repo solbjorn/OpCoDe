@@ -57,7 +57,7 @@ bool Opcode_Err (const char* msg, ...)
 	va_start (args, msg);
 	// Although it's called "..._Err", Opcode also reports less-than-fatal
 	// messages through it
-	
+
     char mesg[256];
 	sprintf(mesg, msg, args);
 	gFile << mesg;

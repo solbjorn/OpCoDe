@@ -295,7 +295,6 @@ bool AABBCollisionTree::Walk(GenericWalkingCallback callback, void* user_data) c
 	return true;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  *	Constructor.
@@ -468,7 +467,6 @@ bool AABBNoLeafTree::Walk(GenericWalkingCallback callback, void* user_data) cons
 //   been scaled, for example.
 // - The deeper we move into the hierarchy, the smaller the extents should be. May not need a fixed
 //   number of quantization bits. Even better, could probably be best delta-encoded.
-
 
 // Find max values. Some people asked why I wasn't simply using the first node. Well, I can't.
 // I'm not looking for (min, max) values like in a standard AABB, I'm looking for the extremal
@@ -667,8 +665,6 @@ bool AABBQuantizedTree::Walk(GenericWalkingCallback callback, void* user_data) c
 	Local::_Walk(mNodes, callback, user_data);
 	return true;
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**

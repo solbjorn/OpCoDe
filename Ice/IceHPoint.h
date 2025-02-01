@@ -46,7 +46,7 @@
 		inline_	HPoint&		Sub(float _x, float _y, float _z, float _w )	{ x -= _x;		y -= _y;	z -= _z;	w -= _w;		return *this;	}
 		//! Subtract a vector
 		inline_	HPoint&		Sub(const float f[4])							{ x -= f[_X];	y -= f[_Y];	z -= f[_Z];	w -= f[_W];		return *this;	}
-		
+
 		//! Multiplies by a scalar
 		inline_	HPoint&		Mul(float s)									{ x *= s;		y *= s;		z *= s;		w *= s;			return *this;	}
 
@@ -157,4 +157,3 @@
 	};
 
 #endif // __ICEHPOINT_H__
-

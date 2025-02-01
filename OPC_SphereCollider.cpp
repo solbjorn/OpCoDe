@@ -40,8 +40,6 @@ using namespace IceMaths;
 #include "OPC_SphereAABBOverlap.h"
 #include "OPC_SphereTriOverlap.h"
 
-
-
 #define SET_CONTACT(prim_index, flag)									\
 	/* Set contact status */											\
 	mFlags |= flag;														\
@@ -184,7 +182,7 @@ BOOL SphereCollider::InitQuery(SphereCache& cache, const IceMaths::Sphere& spher
 		// Matrix normalization & scaling stripping
 		IceMaths::Matrix4x4 normWorldm;
 		NormalizePRSMatrix( normWorldm, mLocalScale, *worldm );
-		
+
 		// Invert model matrix
 		IceMaths::Matrix4x4 InvWorldM;
 		InvertPRMatrix(InvWorldM, normWorldm); // OLD:		//InvertPRMatrix(InvWorldM, *worldm);
@@ -577,7 +575,7 @@ void SphereCollider::_Collide(const AABBTreeNode* node)
 	IceMaths::Point Center, Extents;
 	node->GetAABB()->GetCenter(Center);
 	node->GetAABB()->GetExtents(Extents);
-	if(!SphereAABBOverlap(Center, Extents))	return;	
+	if(!SphereAABBOverlap(Center, Extents))	return;
 
 	if(node->IsLeaf() || SphereContainsBox(Center, Extents))
 	{
@@ -590,12 +588,6 @@ void SphereCollider::_Collide(const AABBTreeNode* node)
 		_Collide(node->GetNeg());
 	}
 }
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**

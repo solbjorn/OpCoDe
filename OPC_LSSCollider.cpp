@@ -188,10 +188,10 @@ BOOL LSSCollider::InitQuery(LSSCache& cache, const IceMaths::LSS& lss, const Ice
 		// Matrix normalization & scaling stripping
 		IceMaths::Matrix4x4 normWorldm;
 		IceMaths::NormalizePRSMatrix( normWorldm, mLocalScale, *worldm );
-		
+
 		// Invert model matrix
 		IceMaths::Matrix4x4 InvWorldM;
-		IceMaths::InvertPRMatrix(InvWorldM, normWorldm); 
+		IceMaths::InvertPRMatrix(InvWorldM, normWorldm);
 
 		mSeg.mP0 *= InvWorldM;
 		mSeg.mP1 *= InvWorldM;
@@ -277,7 +277,6 @@ BOOL LSSCollider::InitQuery(LSSCache& cache, const IceMaths::LSS& lss, const Ice
 				// Make a fat sphere so that coherence will work for subsequent frames
 				mRadius2 *= cache.FatCoeff;
 //				mRadius2 = (lss.mRadius * cache.FatCoeff)*(lss.mRadius * cache.FatCoeff);
-
 
 				// Update cache with query data (signature for cached faces)
 				cache.Previous.mP0 = mSeg.mP0;
@@ -587,11 +586,6 @@ void LSSCollider::_Collide(const AABBTreeNode* node)
 		_Collide(node->GetNeg());
 	}
 }
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**

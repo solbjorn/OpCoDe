@@ -108,7 +108,6 @@ ICEMATHS_API void IceMaths::InvertPRSMatrix(Matrix4x4& dest, const Matrix4x4& sr
 	dest.m[3][1] = -(dest[0][1]*src.m[3][0] + dest[1][1]*src.m[3][1] + dest[2][1]*src.m[3][2]);
 	dest.m[3][2] = -(dest[0][2]*src.m[3][0] + dest[1][2]*src.m[3][1] + dest[2][2]*src.m[3][2]);
 
-
 	// fills last column
 	dest.m[0][3] = dest.m[1][3] = dest.m[2][3] = 0.0;
 	dest.m[3][3] = 1.0;
@@ -132,10 +131,14 @@ ICEMATHS_API void IceMaths::NormalizePRSMatrix(Matrix4x4& dest, Point& scale, co
 	dest = src;
 	for( int i=0;i<3;i++)
 	{
-		src.GetRow(i,row);
-		// computes scales
-		scale[i] = row.Magnitude();
-		row /= scale[i];
+		src.GetRow(i,row);
+
+		// computes scales
+
+		scale[i] = row.Magnitude();
+
+		row /= scale[i];
+
 		dest.SetRow(i,row);
 	}
 }
@@ -197,4 +200,3 @@ Matrix4x4& Matrix4x4::Invert()
 
 	return	*this;
 }
-

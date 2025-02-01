@@ -23,7 +23,6 @@ udword IceCore::Rand()
 	return rand();
 }
 
-
 static BasicRandom gRandomGenerator(42);
 
 udword IceCore::GetRandomIndex(udword max_index)
@@ -32,4 +31,3 @@ udword IceCore::GetRandomIndex(udword max_index)
 	udword Index = gRandomGenerator.Randomize();
 	return Index % max_index;
 }
-

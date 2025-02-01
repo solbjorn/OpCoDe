@@ -31,7 +31,7 @@
 	//! Count the number of '1' bits in a 32 bit word (from Steve Baker's Cute Code Collection)
 	inline_ udword	CountBits(udword n)
 	{
-		// This relies of the fact that the count of n bits can NOT overflow 
+		// This relies of the fact that the count of n bits can NOT overflow
 		// an n bit interger. EG: 1 bit count takes a 1 bit interger, 2 bit counts
 		// 2 bit interger, 3 bit count requires only a 2 bit interger.
 		// So we add all bit pairs, then each nible, then each byte etc...
@@ -72,7 +72,7 @@
 	// Given a binary integer value x, the next largest power of 2 can be computed by a SWAR algorithm
 	// that recursively "folds" the upper bits into the lower bits. This process yields a bit vector with
 	// the same most significant 1 as x, but all 1's below it. Adding 1 to that value yields the next
-	// largest power of 2. For a 32-bit value: 
+	// largest power of 2. For a 32-bit value:
 	inline_ udword	nlpo2(udword x)
 	{
 		x |= (x >> 1);
@@ -132,7 +132,7 @@
 	// can be computed using a SWAR algorithm that recursively "folds" the upper bits into the lower bits.
 	// This process yields a bit vector with the same most significant 1 as x, but all 1's below it.
 	 // Bitwise AND of the original value with the complement of the "folded" value shifted down by one
-	// yields the most significant bit. For a 32-bit value: 
+	// yields the most significant bit. For a 32-bit value:
 	inline_ udword	msb32(udword x)
 	{
 		x |= (x >> 1);

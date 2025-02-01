@@ -183,7 +183,7 @@ bool AABB::ComputePoints(Point* pts)	const
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Point* AABB::GetVertexNormals()	const
 {
-	static float VertexNormals[] = 
+	static float VertexNormals[] =
 	{
 		-INVSQRT3,	-INVSQRT3,	-INVSQRT3,
 		INVSQRT3,	-INVSQRT3,	-INVSQRT3,
@@ -222,7 +222,7 @@ const udword* AABB::GetEdges() const
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Point* AABB::GetEdgeNormals() const
 {
-	static float EdgeNormals[] = 
+	static float EdgeNormals[] =
 	{
 		0,			-INVSQRT2,	-INVSQRT2,	// 0-1
 		INVSQRT2,	0,			-INVSQRT2,	// 1-2
@@ -275,7 +275,6 @@ const Point* AABB::GetEdgeNormals() const
 //there are 6 cases with a single face and and a 4-vertex outline, and
 //20 cases with 2 or 3 faces and a 6-vertex outline. a value of 0 indicates
 //an invalid case.
-
 
 // Original list was made of 7 items, I added an 8th element:
 // - to padd on a cache line

@@ -247,7 +247,7 @@ static float OPC_SegmentSegmentSqrDist(const IceMaths::Segment& rkSeg0, const Ic
 				}
 			}
 		}
-		else 
+		else
 		{
 			if ( fT >= 0.0f )
 			{

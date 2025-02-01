@@ -65,7 +65,7 @@
 		 */
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 							bool			Collide(LSSCache& cache, const IceMaths::LSS& lss, const Model& model, const IceMaths::Matrix4x4* worldl=null, const IceMaths::Matrix4x4* worldm=null);
-		// 
+		//
 							bool			Collide(LSSCache& cache, const IceMaths::LSS& lss, const AABBTree* tree);
 		protected:
 		// LSS in model space

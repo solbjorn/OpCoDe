@@ -213,7 +213,7 @@ BOOL OBBCollider::InitQuery(OBBCache& cache, const IceMaths::OBB& box, const Ice
 		// Matrix normalization & scaling stripping
 		IceMaths::Matrix4x4 normWorldM;
 		NormalizePRSMatrix( normWorldM, mLocalScale, *worldm );
-		
+
 		// uses the PR part of the world matrix
 		IceMaths::Matrix4x4 InvWorldM;
 		InvertPRMatrix(InvWorldM, normWorldM);
@@ -637,11 +637,6 @@ void OBBCollider::_CollideNoPrimitiveTest(const AABBQuantizedNoLeafNode* node)
 	if(node->HasNegLeaf())	{ SET_CONTACT(node->GetNegPrimitive(), OPC_CONTACT) }
 	else					_CollideNoPrimitiveTest(node->GetNeg());
 }
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**

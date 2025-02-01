@@ -245,7 +245,7 @@ bool MeshInterface::SetCallback(RequestCallback callback, void* user_data)
 bool MeshInterface::SetPointers(const IceMaths::IndexedTriangle* tris, const IceMaths::Point* verts)
 {
 	//if(!tris || !verts)	return SetIceError("MeshInterface::SetPointers: pointer is null", null);
-	
+
 	// TODO: Perform a more complete check for every type of mesh interface: triangles, terrain, etc.
 	//		 (By now, just checking vertices - it would be nice if this method returns an error message!)
 	if(!verts)	return SetIceError("MeshInterface::SetPointers: pointer is null", null);
