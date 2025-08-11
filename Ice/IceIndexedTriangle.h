@@ -14,7 +14,7 @@
 
 	// Forward declarations
 #ifdef _MSC_VER
-	enum CubeIndex;
+	enum CubeIndex : int;
 #else
 	typedef int CubeIndex;
 #endif
