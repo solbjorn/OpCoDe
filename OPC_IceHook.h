@@ -1,4 +1,3 @@
-
 // Should be included by Opcode.h if needed
 
 	#define ICE_DONT_CHECK_COMPILER_OPTIONS
@@ -21,7 +20,7 @@
 	#include <math.h>
 
 	#ifndef ASSERT
-		#define	ASSERT(exp)	{}
+		#define	ASSERT(exp)	static_assert(true, "")
 	#endif
 	#define ICE_COMPILE_TIME_ASSERT(exp)	extern char ICE_Dummy[ (exp) ? 1 : -1 ]
 

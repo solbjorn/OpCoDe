@@ -343,6 +343,8 @@
 void FromQuat(const Quat &q);
 void FromQuatL2(const Quat &q, float l2);
 
+		inline_	Matrix3x3		operator=(const Matrix3x3& mat)	{ Copy(mat); return *this; }
+
 		// Arithmetic operators
 		//! Operator for Matrix3x3 Plus = Matrix3x3 + Matrix3x3;
 		inline_	Matrix3x3		operator+(const Matrix3x3& mat)	const

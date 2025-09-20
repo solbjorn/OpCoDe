@@ -392,6 +392,8 @@
 		//! Checks the point is marked as not used
 				BOOL			IsNotUsed()							const;
 
+		inline_	Point			operator=(const Point& p)	{ Set(p); return *this; }
+
 		// Arithmetic operators
 
 		//! Unary operator for Point Negate = - Point

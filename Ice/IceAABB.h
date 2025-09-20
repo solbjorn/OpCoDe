@@ -34,7 +34,8 @@
 								if(p.y > GetMax(1) || p.y < GetMin(1)) return FALSE;												\
 								if(p.z > GetMax(2) || p.z < GetMin(2)) return FALSE;												\
 								return TRUE;																						\
-							}
+							}																										\
+							static_assert(true, "")
 
 	enum AABBType
 	{
